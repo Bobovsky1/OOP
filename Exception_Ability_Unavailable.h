@@ -1,0 +1,15 @@
+#include <exception>
+#include <iostream>
+#include <string>
+
+class Exception_Ability_Unavailable : public std::exception
+{
+    std::string _msg;
+public:
+    Exception_Ability_Unavailable(std::string message) : _msg{ message } {}
+
+    virtual const char* what() const noexcept override
+    {
+        return _msg.c_str();
+    }
+};
